@@ -185,8 +185,19 @@ int main()
     vector<pair<int,int>> ans=soln(points, n);
     //print ans
     cout<<"the points are..."<<endl;
-    for(int i=0;i<ans.size();i++){
-        cout<<ans[i].first<<","<<ans[i].second<<endl;
+
+    pair<int,int> first_pt=ans[0];
+    pair<int,int> last_pt=ans[0];
+    
+    cout<<last_pt.first<<","<<last_pt.second<<endl;
+    for(int i=1;i<ans.size();i++){
+        //if current point is same as last point or first point, then don't print
+        if(last_pt.first!=ans[i].first || last_pt.second!=ans[i].second){
+            if(first_pt.first!=ans[i].first || first_pt.second!=ans[i].second){
+            cout<<ans[i].first<<","<<ans[i].second<<endl;
+            last_pt=ans[i];
+            }
+        }
     }
     return 0;
 }

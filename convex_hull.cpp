@@ -1,5 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
+
+//ISSUES: for an input of pts A,B,C the output is A,B,C,A  where as it should be A,B,C
+
+
 //most of the code is untested ,  but it should work
 //if you find any bug , please report it
 //if you have any question , please ask
@@ -24,7 +28,7 @@ tuple<int,int,int> pointToLineEqn(pair<int,int> p1, pair<int,int> p2){
     //line equation is ax+by+c=0
     int a = p2.second - p1.second;
     int b = p1.first - p2.first;
-    int c = a*p1.first + b*p1.second;
+    int c = p1.second* p2.first -p2.second*p1.first ;
     return make_tuple(a,b,c);
 }
 
@@ -98,7 +102,7 @@ vector<pair<int,int>> soln(vector<pair<int,int>> p,int n){
         }
     }
     //finally push the elements in soln_lt from start to end in main soln
-    for(int i=start;i<=end;i++){
+    for(int i=start;i<end;i++){
         soln_main.push_back(soln_lt[i]);
     }
     //push top
@@ -119,7 +123,7 @@ vector<pair<int,int>> soln(vector<pair<int,int>> p,int n){
         }
     }
     //finally push the elements in soln_tr from start to end in main soln
-    for(int i=start;i<=end;i++){
+    for(int i=start;i<end;i++){
         soln_main.push_back(soln_tr[i]);
     }
     //push right
@@ -140,7 +144,7 @@ vector<pair<int,int>> soln(vector<pair<int,int>> p,int n){
         }
     }
     //finally push the elements in soln_rb from start to end in main soln
-    for(int i=start;i<=end;i++){
+    for(int i=start;i<end;i++){
         soln_main.push_back(soln_rb[i]);
     }
     //push bottom
@@ -161,7 +165,7 @@ vector<pair<int,int>> soln(vector<pair<int,int>> p,int n){
         }
     }
     //finally push the elements in soln_bl from start to end in main soln
-    for(int i=start;i<=end;i++){
+    for(int i=start;i<end;i++){
         soln_main.push_back(soln_bl[i]);
     }
 
@@ -177,8 +181,10 @@ int main()
     {
         cin >> points[i].first >> points[i].second;
     }
+
     vector<pair<int,int>> ans=soln(points, n);
     //print ans
+    cout<<"the points are..."<<endl;
     for(int i=0;i<ans.size();i++){
         cout<<ans[i].first<<","<<ans[i].second<<endl;
     }

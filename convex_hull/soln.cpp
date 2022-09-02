@@ -1,14 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-//ISSUES: for an input of pts A,B,C the output is A,B,C,A  where as it should be A,B,C
-
-
-//most of the code is untested ,  but it should work
-//if you find any bug , please report it
+//some of the code is untested ,  but it should work
 //if you have any question , please ask
 
 //80% code is written using github copliot 
+
+
+//this function is untested
 int getAngle(pair<int,int> ptA,pair<int,int> ptB,pair<int,int> ptC){
     //get the angle pt1,ptB,ptC with ptB as the vertex
     int x1 = ptB.first - ptA.first;
@@ -19,11 +18,15 @@ int getAngle(pair<int,int> ptA,pair<int,int> ptB,pair<int,int> ptC){
     int det = x1*y2 - y1*x2;
     return atan2(det,dot);
 }
+
+//this function is tested
 int eval(tuple<int,int,int> L,pair<int,int> pt){
     int a,b,c;
     tie(a,b,c)=L;
     return a*pt.first+b*pt.second+c;
 }
+
+//this function is tested
 tuple<int,int,int> pointToLineEqn(pair<int,int> p1, pair<int,int> p2){
     //line equation is ax+by+c=0
     int a = p2.second - p1.second;

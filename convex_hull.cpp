@@ -1,5 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
+//most of the code is untested ,  but it should work
+//if you find any bug , please report it
+//if you have any question , please ask
+
+//80% code is written using github copliot 
 int getAngle(pair<int,int> ptA,pair<int,int> ptB,pair<int,int> ptC){
     //get the angle pt1,ptB,ptC with ptB as the vertex
     int x1 = ptB.first - ptA.first;
